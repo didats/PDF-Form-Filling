@@ -8,11 +8,11 @@ Filling PDF Form with arabic characters is such a pain. It took around a week to
 1. PDFTK
 2. iTextPDF
 
-### PDFTK
+#### PDFTK
 
 A library based on Java. There are many wrapper on every programming languages, such as PHP, Go, Javascript, etc. This is the simple way to fill PDF Form automatically. If you are not bother with unicode characters, then this is the main way to go. 
 
-### iTextPDF
+#### iTextPDF
 
 Also based on Java. The current version is PAID. But you could found an old version with JAR extension. This is able to do form filling with unicode characters, but not very stable due the version I was using. 
 
@@ -26,5 +26,28 @@ There is two weaknesess when you are using PDFRW, the PDF Result should be open 
 
 The second one, all the fields inside the PDF Form should be using default font that all computer should have. Arial and Helvetica could be use.
 
+## Preparing
+
+You should have Python 3.x installed and these libraries:
+
+1. PDFRW
+```text
+# pip install pdfrw
+```
 ## How to use
+
+Put the `formfilling.py` on your working directory. You may check example.py to start over.
+
+```python
+from formfilling import FormFilling
+
+field_data = """
+field_key_name This is the value
+fieldname_ar ندما يريد العالم أن ‪يتكلّم ‬
+"""
+form = FormFilling()
+output = form.generate(field_data, "./pdf_template.pdf", "./output")
+print(output)
+```
+
 
